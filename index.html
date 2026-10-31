@@ -55,7 +55,9 @@
             <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
                 <a href="#store" class="hover:text-brand-accent transition">Shop Phones</a>
                 <a href="#repairs" class="hover:text-brand-accent transition">Book Repair</a>
-                <a href="#admin-section" class="hover:text-brand-accent transition font-semibold text-brand-accent">Owner Admin Panel</a>
+                <a href="#admin-section" onclick="promptAdminLogin()" class="hover:text-brand-accent transition font-semibold text-brand-accent flex items-center space-x-1 cursor-pointer">
+                    <i class="fa-solid fa-lock text-xs"></i><span>Owner Login</span>
+                </a>
             </nav>
 
             <div class="flex items-center space-x-4">
@@ -164,12 +166,16 @@
             </form>
         </div>
 
-        <!-- OWNER ADMIN CMS PANEL -->
-        <div id="admin-section" class="mt-28 bg-slate-900 text-white border border-slate-800 rounded-3xl p-8 lg:p-12 shadow-2xl">
-            <div class="max-w-2xl mx-auto text-center mb-10">
-                <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Owner Control Panel</span>
-                <h2 class="text-3xl font-black mt-3">Store Dashboard & CMS</h2>
-                <p class="text-slate-400 text-sm mt-2">Manage your inventory, monitor sales, and review repair appointments.</p>
+        <!-- OWNER ADMIN CMS PANEL (HIDDEN BY DEFAULT UNLESS LOGGED IN) -->
+        <div id="admin-section" class="mt-28 bg-slate-900 text-white border border-slate-800 rounded-3xl p-8 lg:p-12 shadow-2xl hidden">
+            <div class="flex justify-between items-center mb-10 border-b border-slate-800 pb-6">
+                <div>
+                    <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Owner Control Panel</span>
+                    <h2 class="text-3xl font-black mt-3">Store Dashboard & CMS</h2>
+                </div>
+                <button onclick="lockAdmin()" class="bg-red-500/20 hover:bg-red-500/30 text-red-400 border border-red-500/30 px-4 py-2 rounded-xl text-xs font-semibold transition">
+                    <i class="fa-solid fa-lock mr-1"></i> Lock Dashboard
+                </button>
             </div>
 
             <!-- Stats Overview -->
@@ -262,10 +268,4 @@
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">Select Payment Method</label>
                         <select id="payment-method" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-accent">
-                            <option value="Telebirr">Telebirr (Mobile Money)</option>
-                            <option value="CBE">CBE (Commercial Bank of Ethiopia)</option>
-                            <option value="Awash Bank">Awash Bank</option>
-                            <option value="Cash on Delivery">Cash on Delivery / In-Store Pickup</option>
-                        </select>
-                    </div>
-                    <button oncl
+          
