@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AONE Phone | Premium Phones & Professional Repairs</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0F172A',
+                            accent: '#2563EB',
+                            light: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-light text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Top Bar / Social Links -->
+    <div class="bg-brand-dark text-slate-300 text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div>
+                <span><i class="fa-solid fa-location-dot mr-1 text-brand-accent"></i> Official AONE Phone Store & Repair Hub</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://t.me/aonephone" target="_blank" class="hover:text-blue-400 transition"><i class="fa-brands fa-telegram text-sm"></i> Telegram</a>
+                <a href="https://instagram.com/aonephone" target="_blank" class="hover:text-pink-400 transition"><i class="fa-brands fa-instagram text-sm"></i> Instagram</a>
+                <a href="https://facebook.com/aonephone" target="_blank" class="hover:text-blue-500 transition"><i class="fa-brands fa-facebook text-sm"></i> Facebook</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-brand-accent text-white p-2.5 rounded-xl text-xl font-bold tracking-wider shadow-md shadow-blue-500/20">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-black text-brand-dark tracking-tight">AONE<span class="text-brand-accent">PHONE</span></span>
+                    <p class="text-[10px] text-slate-400 tracking-widest uppercase font-semibold">Phones & Pro Repairs</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
+                <a href="#store" class="hover:text-brand-accent transition">Shop Phones</a>
+                <a href="#repairs" class="hover:text-brand-accent transition">Book Repair</a>
+                <a href="#admin-section" onclick="promptAdminLogin()" class="hover:text-brand-accent transition font-semibold text-brand-accent flex items-center space-x-1">
+                    <i class="fa-solid fa-lock text-xs"></i><span>Owner Login</span>
+                </a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleCart()" class="relative bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2.5 rounded-xl font-medium text-sm transition flex items-center space-x-2">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-count" class="bg-brand-accent text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-brand-dark text-white overflow-hidden py-20 lg:py-28">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#2563EB_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wider">Authentic Devices & Local Warranty</span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                    Next-Gen Smartphones & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Expert Repairs</span>
+                </h1>
+                <p class="text-slate-300 text-lg max-w-xl">
+                    Browse brand new and certified pre-owned phones. Pay easily via Telebirr, CBE, or other trusted banks.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#store" class="bg-brand-accent hover:bg-blue-700 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg shadow-blue-600/30 transition">Browse Catalog</a>
+                    <a href="#repairs" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold px-8 py-3.5 rounded-xl transition">Book Repair</a>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="w-full max-w-md bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-8 rounded-3xl shadow-2xl relative">
+                    <div class="absolute -top-3 -right-3 bg-brand-accent text-white text-xs px-3 py-1 rounded-full font-bold shadow">Official AONE</div>
+                    <h3 class="text-xl font-bold mb-4 text-white"><i class="fa-solid fa-share-nodes text-brand-accent mr-2"></i> Connect With Us</h3>
+                    <p class="text-slate-300 text-sm mb-6">Join our channels for daily stock updates and special offers:</p>
+                    <div class="space-y-3">
+                        <a href="https://t.me/aonephone" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white transition">
+                            <span class="flex items-center space-x-3"><i class="fa-brands fa-telegram text-blue-400 text-xl"></i> <span class="font-medium">Telegram Channel</span></span>
+                            <i class="fa-solid fa-arrow-right text-xs text-slate-400"></i>
+                        </a>
+                        <a href="https://instagram.com/aonephone" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white transition">
+                            <span class="flex items-center space-x-3"><i class="fa-brands fa-instagram text-pink-400 text-xl"></i> <span class="font-medium">Instagram Page</span></span>
+                            <i class="fa-solid fa-arrow-right text-xs text-slate-400"></i>
+                        </a>
+                        <a href="https://facebook.com/aonephone" target="_blank" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white transition">
+                            <span class="flex items-center space-x-3"><i class="fa-brands fa-facebook text-blue-500 text-xl"></i> <span class="font-medium">Facebook Page</span></span>
+                            <i class="fa-solid fa-arrow-right text-xs text-slate-400"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        
+        <!-- Store Catalog -->
+        <div id="store" class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+            <div>
+                <h2 class="text-3xl font-bold tracking-tight text-brand-dark">Available Mobile Products</h2>
+                <p class="text-slate-500 text-sm mt-1">Directly updated from the store owner's inventory.</p>
+            </div>
+            <div class="w-full md:w-auto">
+                <input type="text" id="search-input" placeholder="Search brand or model..." onkeyup="filterProducts()" class="bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-accent w-full md:w-64 shadow-sm">
+            </div>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Populated via JavaScript -->
+        </div>
+
+        <!-- Repair Booking Portal -->
+        <div id="repairs" class="mt-28 bg-white border border-slate-200/80 rounded-3xl p-8 lg:p-12 shadow-sm">
+            <div class="max-w-2xl mx-auto text-center mb-12">
+                <span class="bg-blue-50 text-brand-accent text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Expert Maintenance</span>
+                <h2 class="text-3xl font-black text-brand-dark mt-3">Book Smartphone Repair</h2>
+                <p class="text-slate-500 text-sm mt-2">Submit your repair appointment and our technician will schedule your service.</p>
+            </div>
+            <form onsubmit="handleRepairBooking(event)" class="max-w-xl mx-auto space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Full Name</label>
+                        <input type="text" id="repair-name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-accent">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Phone Number</label>
+                        <input type="tel" id="repair-phone" placeholder="09xxxxxxxx" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-accent">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Device Model</label>
+                        <input type="text" id="repair-model" placeholder="e.g. iPhone 13, Galaxy S22" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-accent">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Issue Type</label>
+                        <select id="repair-issue" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-accent">
+                            <option value="Screen Replacement">Screen Replacement</option>
+                            <option value="Battery Replacement">Battery Replacement</option>
+                            <option value="Charging Port Repair">Charging Port Repair</option>
+                            <option value="Water Damage Diagnosis">Water Damage Diagnosis</option>
+                            <option value="Software / Other">Software / Other</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-brand-dark hover:bg-slate-900 text-white font-semibold py-3.5 rounded-xl transition shadow-lg">Submit Repair Appointment</button>
+            </form>
+        </div>
+
+        <!-- OWNER ADMIN CMS PANEL (HIDDEN BY DEFAULT UNLESS LOGGED IN) -->
+        <div id="admin-section" class="mt-28 bg-slate-900 text-white border border-slate-800 rounded-3xl p-8 lg:p-12 shadow-2xl hidden">
+            <div class="flex justify-between items-center mb-10 border-b border-slate-800 pb-6">
+                <div>
+                    <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Owner Control Panel</span>
+                    <h2 class="text-3xl font-black mt-3">Store Dashboard & CMS</h2>
+                </div>
+                <button onclick="lockAdmin()" class="bg-red-500/20 hover:bg-red-500/30 text-red-400 border border-red-500/30 px-4 py-2 rounded-xl text-xs font-semibold transition">
+                    <i class="fa-solid fa-lock mr-1"></i> Lock Dashboard
+                </button>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
+                <div class="bg-slate-800/80 border border-slate-700/60 p-6 rounded-2xl text-center">
+                    <p class="text-xs text-slate-400 uppercase font-semibold">Total Store Sales</p>
+                    <p id="admin-total-sales" class="text-3xl font-black text-brand-accent mt-2">$0</p>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700/60 p-6 rounded-2xl text-center">
+                    <p class="text-xs text-slate-400 uppercase font-semibold">Repair Appointments</p>
+                    <p id="admin-repair-count" class="text-3xl font-black text-emerald-400 mt-2">0</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Add Product Form -->
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+                    <h3 class="text-xl font-bold mb-6 flex items-center"><i class="fa-solid fa-plus-circle text-brand-accent mr-2"></i> Add New Product</h3>
+                    <form onsubmit="handleAddProduct(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">Product Title</label>
+                            <input type="text" id="new-title" placeholder="e.g. iPhone 15 Pro Max" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">Brand</label>
+                                <input type="text" id="new-brand" placeholder="Apple / Samsung" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">Price ($ USD)</label>
+                                <input type="number" id="new-price" placeholder="1199" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">Image URL</label>
+                            <input type="url" id="new-image" placeholder="https://images.unsplash.com/..." required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">Description</label>
+                            <textarea id="new-desc" rows="3" placeholder="Condition, storage, features..." required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-accent hover:bg-blue-700 text-white font-semibold py-3.5 rounded-xl transition shadow-lg">Publish Product Live</button>
+                    </form>
+                </div>
+
+                <!-- Repair Appointments List -->
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 flex flex-col">
+                    <h3 class="text-xl font-bold mb-6 flex items-center"><i class="fa-solid fa-calendar-check text-emerald-400 mr-2"></i> Repair Appointments</h3>
+                    <div id="admin-repair-list" class="flex-1 overflow-y-auto space-y-3 max-h-96 pr-2">
+                        <p class="text-slate-400 text-sm text-center py-10">No repair appointments submitted yet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-slate-400 py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-xl font-bold text-white">AONE<span class="text-brand-accent">PHONE</span></span>
+                <p class="text-xs text-slate-500 mt-1">Professional multi-brand phone store & certified repair center in Ethiopia.</p>
+            </div>
+            <div class="flex space-x-6 text-sm">
+                <a href="https://t.me/aonephone" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-telegram mr-1"></i> Telegram</a>
+                <a href="https://instagram.com/aonephone" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-instagram mr-1"></i> Instagram</a>
+                <a href="https://facebook.com/aonephone" target="_blank" class="hover:text-white transition"><i class="fa-brands fa-facebook mr-1"></i> Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Slide-over Cart & Checkout Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="flex items-center justify-between px-6 py-5 border-b border-slate-100">
+                    <h3 class="text-lg font-bold text-brand-dark">Shopping Bag</h3>
+                    <button onclick="toggleCart()" class="text-slate-400 hover:text-slate-600 text-xl">&times;</button>
+                </div>
+                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <!-- Cart items listed here -->
+                </div>
+                <div class="border-t border-slate-100 p-6 bg-slate-50 space-y-4">
+                    <div class="flex justify-between text-base font-bold text-brand-dark">
+                        <span>Subtotal</span>
+                        <span id="cart-total">$0</span>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">Select Payment Method</label>
+                        <select id="payment-method" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-accent">
+                         
